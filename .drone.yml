@@ -16,6 +16,7 @@ steps:
     environment:
       MATOMO_SITE_ID: 14
       MATOMO_URL: https://track.josa.ngo/
+      TARGET_ENV: development
     settings:
       repo: josaorg/safepass
       tags:

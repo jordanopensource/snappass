@@ -14,12 +14,15 @@
   z-index: 10;
   position: fixed;
   top:0;
+  padding-top: 10px;
 }
 
 .banner p,
 .banner a,
 .banner button {
   color: white;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 .main-container {
@@ -35,6 +38,7 @@
 }
 
 .bannerBtn {
+  cursor: pointer;
   font-size: 2rem;
   font-weight: bold;
 }

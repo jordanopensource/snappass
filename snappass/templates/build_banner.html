@@ -3,23 +3,22 @@
     <div class="banner">
         <div class="main-container">
         <div class="row-container">
-            <span>🔨</span>
-            <p>
-            <span class="font-bold">Build</span>:
-            <a
-                href="{{DRONE_BUILD_LINK}}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                #{{ DRONE_BUILD_NUMBER }}
-            </a>
-            <a
-                href="{{DRONE_COMMIT_LINK}}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ({{ DRONE_COMMIT_SHA.slice[0:7] }})
-            </a>
+            <p> 🔨
+                <span class="fw-bold">Build</span>:
+                <a
+                    href="{{DRONE_BUILD_LINK}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    #{{ DRONE_BUILD_NUMBER }}
+                </a>
+                <a
+                    href="{{DRONE_COMMIT_LINK}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ({{ DRONE_COMMIT_SHA[0:6] }})
+                </a>
             </p>
         </div>
         <div class="row-container">

@@ -16,12 +16,21 @@ URL_PREFIX = os.environ.get('URL_PREFIX', None)
 HOST_OVERRIDE = os.environ.get('HOST_OVERRIDE', None)
 TOKEN_SEPARATOR = '~'
 
-# environment variables for matomo
+# Get environment variables for matomo
 MATOMO_URL = os.environ.get('MATOMO_URL', None)
 SITE_ID = os.environ.get('MATOMO_SITE_ID', None)
 MATOMO_DATA = {
     'matomo_url': MATOMO_URL,
     'site_id': SITE_ID
+}
+
+# Get environment variables for build banner
+BUILD_BANNER_DATA = {
+    'DRONE_BUILD_LINK': os.environ.get('DRONE_BUILD_LINK', None),
+    'DRONE_BUILD_NUMBER': os.environ.get('DRONE_BUILD_NUMBER', None),
+    'DRONE_COMMIT_LINK': os.environ.get('DRONE_COMMIT_LINK', None),
+    'DRONE_COMMIT_SHA': os.environ.get('DRONE_COMMIT_SHA', None),
+    'TARGET_ENV': os.environ.get('TARGET_ENV', None)
 }
 
 # Initialize Flask Application
@@ -165,6 +174,11 @@ def clean_input():
 @app.context_processor
 def injectMatomoData():
     return MATOMO_DATA
+
+# inject build data in all templates
+@app.context_processor
+def injectBuildData():
+    return BUILD_BANNER_DATA
 
 @app.route('/', methods=['GET'])
 def index():

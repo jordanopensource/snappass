@@ -1,0 +1,43 @@
+<!-- <div v-if="!this.bannerClosed"> -->
+<div id="outer-container">
+    <div class="banner">
+        <div class="main-container">
+        <div class="row-container">
+            <p> 🔨
+                <span class="fw-bold">Build</span>:
+                <a
+                    href="{{DRONE_BUILD_LINK}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    #{{ DRONE_BUILD_NUMBER }}
+                </a>
+                <a
+                    href="{{DRONE_COMMIT_LINK}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ({{ DRONE_COMMIT_SHA[0:6] }})
+                </a>
+            </p>
+        </div>
+        <div class="row-container">
+            <p> 🚧 <span class="fw-bold"> Environment: </span> {{ TARGET_ENV }} 
+                <span class="bannerBtn" id="bannerBtn" onclick="closeBanner()">
+                    &#215;
+                </span>
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="hidden-whitespace"></div>
+</div>
+<script>
+    let outerDiv = document.getElementById('outer-container');
+    function closeBanner() {
+        outerDiv.style.display = 'none';
+    }
+    if ('{{ TARGET_ENV }}' !== 'development'){
+        closeBanner();
+    }
+</script>

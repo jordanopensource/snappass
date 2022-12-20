@@ -13,12 +13,15 @@ node_selector:
 steps:
   - name: build
     image: plugins/docker
-    environment:
-      MATOMO_SITE_ID: 14
-      MATOMO_URL: https://track.josa.ngo/
-      TARGET_ENV: development
     settings:
       repo: josaorg/safepass
+      build_args:
+        [
+          MATOMO_URL=https://track.josa.ngo/,
+          MATOMO_SITE_ID=14,
+          TARGET_ENV=development,
+          ONION_ADDRESS=http://dev.josa.onion,
+        ]
       build_args_from_env:
         [
           DRONE_BUILD_NUMBER,

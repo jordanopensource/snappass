@@ -5,7 +5,7 @@ import uuid
 import redis
 
 from cryptography.fernet import Fernet
-from flask import abort, Flask, render_template, request, jsonify
+from flask import abort, Flask, render_template, request, jsonify, make_response
 from redis.exceptions import ConnectionError
 from werkzeug.urls import url_quote_plus
 from werkzeug.urls import url_unquote_plus
@@ -32,6 +32,9 @@ BUILD_BANNER_DATA = {
     'DRONE_COMMIT_SHA': os.environ.get('DRONE_COMMIT_SHA', None),
     'TARGET_ENV': os.environ.get('TARGET_ENV', None)
 }
+
+# Get environment variable for onion address
+ONION_ADDRESS = os.environ.get('ONION_ADDRESS', None)
 
 # Initialize Flask Application
 app = Flask(__name__)
@@ -182,8 +185,10 @@ def injectBuildData():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('set_password.html')
-
+    response = make_response(render_template('set_password.html'))
+    # add onion location as a http header
+    response.headers['onion-location'] = ONION_ADDRESS
+    return response
 
 @app.route('/', methods=['POST'])
 def handle_password():

@@ -11,6 +11,7 @@ services:
             - MATOMO_SITE_ID=14
             - MATOMO_URL=https://track.josa.ngo/
             - REDIS_HOST=redis
+            - ONION_ADDRESS=http://xlaci2kx3vivuhngpynpkjbmlqrgdoqvncyziekev2stndktr52nf4yd.onion
             - NO_SSL=True
         depends_on:
             - redis

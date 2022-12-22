@@ -335,6 +335,14 @@ input[readonly].readonly-text {
 .line {
     z-index: -1;
 }
+.dropdown-arrow {
+    background-image: url('../../images/arrowhead_down_dropdown.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 15px;
+    background-position: 94% center;
+    padding: 0.5rem 1.8rem;
+    padding-left: 1rem;
+}
 @media (max-width: 600px) {
     /*  */
 }

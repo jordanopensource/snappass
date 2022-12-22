@@ -187,7 +187,10 @@ input[readonly].readonly-text {
     background-image: url('../../images/lock_icon.svg');
 }
 .input-section form {
-    grid-column: 3/15;
+    grid-column: 1/17;
+}
+.input-section form > div {
+    padding: 1rem 1.2rem !important;
 }
 .copy-secret-section {
     grid-template-columns: repeat(16, 2fr);
@@ -216,14 +219,11 @@ input[readonly].readonly-text {
 .info-cards-section {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr 2fr;
-    row-gap: 30px;
     justify-items: center;
 }
 .info-cards-section > h2 {
     grid-column: 1/6;
-}
-.info-cards-section.mainpage > h2 {
-    grid-column: 5/8;
+    padding: 3rem 0;
 }
 .info-cards-section > div {
     grid-row-start: 2;
@@ -352,6 +352,7 @@ input[readonly].readonly-text {
     }
     .info-cards-section {
         grid-template-rows: 1fr 2fr 2fr;
+        row-gap: 30px;
     }
     .card.c1 {
         grid-column: 1 / 5;
@@ -367,9 +368,6 @@ input[readonly].readonly-text {
         grid-row-start: 3;
         grid-column: 5 / 9;
     }
-    .info-cards-section.mainpage > h2 {
-        grid-column: 1/6;
-    }
     .secret-info-list {
         grid-column: 6/9;
     }
@@ -380,12 +378,6 @@ input[readonly].readonly-text {
         background-size: 578.5px 1247px;
         background-repeat: no-repeat;
         background-position: 110% -50%;
-    }
-    .container.main .info-cards-section {
-        margin-top: -7rem;
-    }
-    .input-section {
-        grid-template-rows: 1fr 1fr;
     }
     .card {
         width: 200px;

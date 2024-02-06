@@ -15,6 +15,11 @@ steps:
     image: plugins/docker
     settings:
       repo: josaorg/safepass
+      build_args:
+        [
+          MATOMO_URL=https://track.josa.ngo/,
+          MATOMO_SITE_ID=15,
+        ]
       tags:
         - ${DRONE_COMMIT_SHA}
         - stable

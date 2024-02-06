@@ -12,10 +12,9 @@ COPY ["setup.py", "MANIFEST.in", "README.rst", "AUTHORS.rst", "Makefile", "requi
 COPY ["./snappass", "$APP_DIR/snappass"]
 
 RUN apt-get update && \
-    apt-get install make
-
-RUN make prod
-RUN python setup.py install && \
+    apt-get install make && \
+    make prod && \
+    python setup.py install && \
     chown -R snappass $APP_DIR && \
     chgrp -R snappass $APP_DIR
 

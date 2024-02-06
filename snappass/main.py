@@ -214,6 +214,11 @@ def show_password(password_key):
     return render_template('password.html', password=password)
 
 
+@app.route('/healthcheck', methods=['GET'])
+def get_healthcheck():
+    return {'result': 'I\'m not a Barbie girl, and this isn\'t a Barbie world, WAKE UP!'}
+
+
 @check_redis_alive
 def main():
     app.run(host='0.0.0.0')

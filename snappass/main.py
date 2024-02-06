@@ -216,7 +216,7 @@ def show_password(password_key):
 
 @app.route('/healthcheck', methods=['GET'])
 def get_healthcheck():
-    return {'result': 'I\'m not a Barbie girl, and this isn\'t a Barbie world, WAKE UP!'}
+    return {'result': 'I\'m working👍'}
 
 
 @check_redis_alive

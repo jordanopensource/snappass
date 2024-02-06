@@ -6,7 +6,7 @@
 CONTRIBUTING.rst
 docker-compose.yml
 Dockerfile
-requirements.txt
+# requirements.txt
 tests.py
 tox.ini
 

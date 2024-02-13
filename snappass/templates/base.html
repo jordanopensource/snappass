@@ -28,6 +28,16 @@
         _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
         _paq.push(["setTrackerUrl", u + "/matomo.php"]);
         _paq.push(["setSiteId", "{{site_id}}"]);
+
+        // remove query parameters before sending the url to matomo
+        let page_url = location.href;
+        const query_pos = location.href.indexOf("?");
+        if (query_pos) {
+          page_url = location.href.substring(0, query_pos);
+        }
+        _paq.push(["setCustomUrl", page_url]);
+        _paq.push(["trackPageView"]);
+
         let d = document,
           g = d.createElement("script"),
           s = d.getElementsByTagName("script")[0];
